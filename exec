@@ -1,0 +1,2 @@
+node -v
+node -e "const admin = require('firebase-admin');admin.initializeApp(); const firestore = admin.firestore();" -i --experimental-repl-await
