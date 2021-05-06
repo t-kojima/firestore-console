@@ -9,6 +9,6 @@
     "firebase-admin": "^9.7.0"
   },
   "bin": {
-    "firestore-console": "index.js"
+    "firestore-console": "node index.js"
   }
 }
