@@ -1,5 +1,5 @@
-const admin = require('firebase-admin');
+var admin = require("firebase-admin");
 admin.initializeApp();
 
-const replServer = require('repl').start('> ');
+var replServer = require('repl').start('> ');
 replServer.context.firestore = admin.firestore();
