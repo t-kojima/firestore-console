@@ -1,5 +1,5 @@
 {
-  "name": "firestore-console",
+  "name": "@t-kojima/firestore-console",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "ssh://git@github.com/t-kojima/firestore-console.git",
