@@ -2,7 +2,7 @@
   "name": "firestore-console",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/t-kojima/firestore-console",
+  "repository": "t-kojima/firestore-console",
   "author": "t-kojima <t-kojima@sonicgarden.jp>",
   "license": "MIT",
   "dependencies": {
