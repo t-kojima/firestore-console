@@ -44,6 +44,6 @@ function fetchCollection(path) {
   return replServer.context.firestore
     .collection(path)
     .get()
-    .then(({ docs }) => docs.map((doc) => doc.data()));
+    .then(({ docs }) => docs.map((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data()})));
 }
 replServer.context.fetchCollection = fetchCollection;
