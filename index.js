@@ -10,6 +10,7 @@ if (program.opts().projectId) {
 } else {
   admin.initializeApp();
 }
+const firestore = admin.firestore();
 
 const repl = require('repl');
 const vm = require('vm');
@@ -38,21 +39,17 @@ async function myEval(code, context, filename, callback) {
 }
 
 const replServer = repl.start({ prompt: '> ', eval: myEval });
-replServer.context.firestore = admin.firestore();
+replServer.context.firestore = firestore;
 
-function fetchCollection(path) {
-  return replServer.context.firestore
+replServer.context.fetchCollection = (path) =>
+  firestore
     .collection(path)
     .get()
     .then(({ docs }) => docs.map((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data() })));
-}
-replServer.context.fetchCollection = fetchCollection;
 
-function fetchDocument(path, id) {
-  return replServer.context.firestore
+replServer.context.fetchDocument = (path, id) =>
+  firestore
     .collection(path)
     .doc(id)
     .get()
     .then((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data() }));
-}
-replServer.context.fetchDocument = fetchDocument;
