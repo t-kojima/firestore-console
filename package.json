@@ -6,9 +6,12 @@
   "author": "t-kojima <t-kojima@sonicgarden.jp>",
   "license": "MIT",
   "dependencies": {
-    "firebase-admin": "^9.7.0"
+    "commander": "^7.2.0",
+    "firebase-admin": "^9.7.0",
+    "node-repl-await": "^0.1.2",
+    "vm": "^0.1.0"
   },
   "bin": {
-    "firestore-console": "exec"
+    "firestore-console": "index.js"
   }
 }
