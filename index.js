@@ -44,6 +44,15 @@ function fetchCollection(path) {
   return replServer.context.firestore
     .collection(path)
     .get()
-    .then(({ docs }) => docs.map((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data()})));
+    .then(({ docs }) => docs.map((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data() })));
 }
 replServer.context.fetchCollection = fetchCollection;
+
+function fetchDocument(path, id) {
+  return replServer.context.firestore
+    .collection(path)
+    .doc(id)
+    .get()
+    .then((doc) => ({ id: doc.id, ref: doc.ref, ...doc.data() }));
+}
+replServer.context.fetchDocument = fetchDocument;
